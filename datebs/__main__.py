@@ -1,24 +1,3 @@
-# DateBS
-
-A python library that assists you in converting date from BS to AD and vice versa.
-
-# Installation
-
-```bash
-pip install datebs
-```
-
-## usage
-
-### Commandline
-
-convert the date 2020-07-01 into BS
-```bash
-python -m datebs BS --date 2020-07-01
-```
-
-using from python
-```python
 from .datebs import DateBS
 import argparse
 import datetime
@@ -40,4 +19,4 @@ if __name__ == "__main__":
             print(dateBS.to_AD())
         else:
             print(datetime.datetime.now())
-```
+
