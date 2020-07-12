@@ -1,0 +1,11 @@
+#include <com/sun/star/uno/XInterface.idl>
+
+module np { module com { module maharjansujit { module npDate {
+        interface XnpDate {
+          string dateToAD( [in] string date);
+          string dateToBS( [in] string date);
+        };
+      };
+    };
+  };
+};
