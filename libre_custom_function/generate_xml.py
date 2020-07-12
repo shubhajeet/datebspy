@@ -45,6 +45,7 @@ manifest_xml.write('<manifest:manifest>\n');
 add_manifest_entry(manifest_xml, 'uno-typelibrary;type=RDB', 'XnpDate.rdb')
 add_manifest_entry(manifest_xml, 'configuration-data', 'CalcAddIn.xcu')
 add_manifest_entry(manifest_xml, 'uno-component;type=Python', 'npdate.py')
+add_manifest_entry(manifest_xml, 'uno-component;type=Python', 'datebs.py')
 manifest_xml.write('</manifest:manifest> \n')
 
 manifest_xml.close

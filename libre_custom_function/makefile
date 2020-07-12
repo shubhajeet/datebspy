@@ -1,18 +1,19 @@
-dependency=CalcAddIn.xcu idl/XnpDate.rdb description.xml npDate.py
+dependency=idl/XnpDate.rdb generate_xml.py npdate.py
 
 idl/XnpDate.rdb : idl/XnpDate.idl
 	. /usr/lib/libreoffice/sdk/setsdkenv_unix.sh && \
 	idlc -I /usr/lib/libreoffice/sdk/idl $< && \
 	regmerge $@ /UCR idl/XnpDate.urd 
 
-manifest.txt: ${dependency} generate.py
+manifest.txt: ${dependency} generate_xml.py
 	python generate_xml.py
 
-build : ${dependency} manifest.txt
+build : ${dependency} manifest.xml description.xml CalcAddIn.xcu 
 	mkdir -p build/META-INF
-	cp ${dependency} build
-	cp manifest.xml build/META-INF
-	cd build; zip -r NepalDataScrapper.oxt *
+	cp -r ../datebs/datebs.py build
+	cp -r $^ build
+	cp build/manifest.xml build/META-INF
+	cd build; zip -r datenp.oxt *
 
 .PHONY : clean
 clean :

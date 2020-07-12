@@ -2,7 +2,7 @@
 import uno
 import unohelper
 from np.com.maharjansujit.npDate import XnpDate
-from datebs import DateBS
+from .datebs import DateBS
 import logging
 import datetime
 
