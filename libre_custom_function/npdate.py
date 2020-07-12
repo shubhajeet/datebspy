@@ -2,11 +2,10 @@
 import uno
 import unohelper
 from np.com.maharjansujit.npDate import XnpDate
-from .datebs import DateBS
 import logging
 import datetime
 
-class npDateImpl(unohelper.Base, XNepalDataScrapper):
+class npDateImpl(unohelper.Base, XnpDate):
     def __init__(self, ctx):
         self.ctx = ctx
         self.datebs = DateBS();
@@ -23,7 +22,7 @@ class npDateImpl(unohelper.Base, XNepalDataScrapper):
             dateBS = DateBS.from_AD(datetime.datetime.strptime(date, "%Y-%m-%d"))
         return str(dateBS)
 
-    def date_to_ad(date=None):
+    def date_to_ad(self,date=None):
         if date is None:
             return datetime.datetime.now()
         else:

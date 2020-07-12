@@ -10,8 +10,8 @@ manifest.txt: ${dependency} generate_xml.py
 
 build : ${dependency} manifest.xml description.xml CalcAddIn.xcu 
 	mkdir -p build/META-INF
-	cp -r ../datebs/datebs.py build
 	cp -r $^ build
+	cat npdate.py ../datebs/datebs.py | tee build/npdate.py
 	cp build/manifest.xml build/META-INF
 	cd build; zip -r datenp.oxt *
 
