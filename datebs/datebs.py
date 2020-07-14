@@ -121,6 +121,7 @@ class DateBS:
         date = re.findall("(?P<year>\d+)-(?P<month>\d+)-(?P<day>\d+)", datestring)
         return DateBS(int(date[0][0]), int(date[0][1]), int(date[0][2]))
 
+    @staticmethod
     def from_AD(date: datetime.datetime):
         starting_date_AD = datetime.datetime(year=1944, month=1, day=1)
         diff_day = (date - starting_date_AD).days
@@ -131,19 +132,20 @@ class DateBS:
         return str(self.year) + "-" + str(self.month) + "-" + str(self.day)
 
     def day_of_year(self) -> int:
-        months = self.months_in_year()
-        return sum(months[0:self.month]) + self.day
+        months = DateBS.months_in_year(self.year)
+        return sum(months[0:self.month-1]) + self.day
 
     @staticmethod
     def days_in_year(year: int) -> int:
         return sum(DateBS.months_in_year(year))
 
-    def day_since(self, date : any )  -> int:
-        if date is None:
+    def day_since(self, date : any = None )  -> int:
+        if (date == None):
             date = DateBS(2000,9,17)
         days: int = 0 
         for year in range(date.year, self.year):
-            days += self.days_in_year(year)
+            day_in_year = DateBS.days_in_year(year)
+            days += day_in_year
         days = days + self.day_of_year() - date.day_of_year()
         return days
 
@@ -153,7 +155,7 @@ class DateBS:
         self.month = int(self.month%12)
         diff: int = day
         while (diff > 0):
-            #import ipdb; ipdb.set_trace()
+            #import ipdb;ipdb.set_trace()
             days_in_month: int = DateBS.days_in_month(self.year, self.month)
             days_left_in_month: int = days_in_month - self.day + 1
             if (diff > days_left_in_month):
@@ -170,7 +172,7 @@ class DateBS:
         return self
 
     def to_AD(self):
-        starting_date_AD = datetime.datetime(year=1994, month=1, day=1)
+        starting_date_AD = datetime.datetime(year=1944, month=1, day=1)
         day_since = self.day_since()
         return starting_date_AD + datetime.timedelta(days=day_since)
 
