@@ -2,8 +2,10 @@
 
 module np { module com { module maharjansujit { module npDate {
         interface XnpDate {
-          string dateToAD( [in] string date);
-          string dateToBS( [in] string date);
+          string dateToAD( [in] any date);
+          string dateToBS( [in] any date);
+          string echo([in] string text);
+          string greet();
         };
       };
     };

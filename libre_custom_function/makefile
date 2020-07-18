@@ -5,13 +5,14 @@ idl/XnpDate.rdb : idl/XnpDate.idl
 	idlc -I /usr/lib/libreoffice/sdk/idl $< && \
 	regmerge $@ /UCR idl/XnpDate.urd 
 
-manifest.txt: ${dependency} generate_xml.py
+manifest.txt description.xml CalcAddin.xcu: generate_xml.py
 	python generate_xml.py
 
 build : ${dependency} manifest.xml description.xml CalcAddIn.xcu 
 	mkdir -p build/META-INF
 	cp -r $^ build
-	cat npdate.py ../datebs/datebs.py | tee build/npdate.py
+	#cat npdate.py ../datebs/datebs.py | tee build/npdate.py
+	#cat npdate.py build/npdate.py
 	cp build/manifest.xml build/META-INF
 	cd build; zip -r datenp.oxt *
 

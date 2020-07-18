@@ -138,8 +138,8 @@ class DateBS:
     def days_in_year(year: int) -> int:
         return sum(DateBS.months_in_year(year))
 
-    def day_since(self, date : any )  -> int:
-        if date is None:
+    def day_since(self, date : any = None )  -> int:
+        if (date == None):
             date = DateBS(2000,9,17)
         days: int = 0 
         for year in range(date.year, self.year):

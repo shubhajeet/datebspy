@@ -5,7 +5,7 @@
 addin_id = "np.com.maharjansujit.npdate"
 addin_version = "0.1"
 addin_displayname = "Convert date from AD to BS and vice versa"
-addin_publisher_link = "https://mahrajansujit.com.np/projects/datebpy"
+addin_publisher_link = "https://maharjansujit.com.np/projects/datebpy"
 addin_publisher_name = "Sujit Maharjan"
 
 # description.xml
@@ -45,7 +45,7 @@ manifest_xml.write('<manifest:manifest>\n');
 add_manifest_entry(manifest_xml, 'uno-typelibrary;type=RDB', 'XnpDate.rdb')
 add_manifest_entry(manifest_xml, 'configuration-data', 'CalcAddIn.xcu')
 add_manifest_entry(manifest_xml, 'uno-component;type=Python', 'npdate.py')
-add_manifest_entry(manifest_xml, 'uno-component;type=Python', 'datebs.py')
+#add_manifest_entry(manifest_xml, 'uno-component;type=Python', 'datebs.py')
 manifest_xml.write('</manifest:manifest> \n')
 
 manifest_xml.close
@@ -64,7 +64,7 @@ def define_function(xml_file, function_name, description, parameters):
 	xml_file.write('    <prop oor:name="DisplayName"><value xml:lang="en">' + function_name + '</value></prop>\n')
 	xml_file.write('    <prop oor:name="Description"><value xml:lang="en">' + description + '</value></prop>\n')
 	xml_file.write('    <prop oor:name="Category"><value>Add-In</value></prop>\n')
-	xml_file.write('    <prop oor:name="CompatibilityName"><value xml:lang="en">AutoAddIn.DoobieDo.' + function_name + '</value></prop>\n')
+	#xml_file.write('    <prop oor:name="CompatibilityName"><value xml:lang="en">AutoAddIn.DoobieDo.' + function_name + '</value></prop>\n')
 	xml_file.write('    <node oor:name="Parameters">\n')
 
 	for p, desc in parameters:
@@ -89,10 +89,16 @@ calcaddin_xml.write('<node oor:name="AddInFunctions">\n')
 
 define_function(calcaddin_xml, \
 	'dateToAD', 'converts date in BS to AD', \
-	[('date', 'Date in AD')])
+	[('[date]', 'Date in BS')])
 define_function(calcaddin_xml, \
 	'dateToBS', 'converts date in BS to AD', \
-	[('date', 'Date in AD')])
+	[('[date]', 'Date in AD')])
+#define_function(calcaddin_xml, \
+#	'echo', 'echo test', \
+#	[('text', 'string')])
+#define_function(calcaddin_xml, \
+#	'greet', 'greets', \
+#	[])
 
 calcaddin_xml.write('</node>\n')
 calcaddin_xml.write('</node>\n')

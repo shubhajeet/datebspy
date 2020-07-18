@@ -2,32 +2,41 @@
 import uno
 import unohelper
 from np.com.maharjansujit.npDate import XnpDate
-import logging
 import datetime
+from datebs import DateBS
 
 class npDateImpl(unohelper.Base, XnpDate):
     def __init__(self, ctx):
         self.ctx = ctx
-        self.datebs = DateBS();
-        self.logger=logging.getLogger('nepalDataScrapper')
-        hdlr = logging.FileHandler("/var/tmp/log.log")
-        formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-        hdlr.setFormatter(formatter)
-        self.logger.addHandler(hdlr)
 
-    def date_to_bs(self,date=None):
-        if date is None:
-            dateBS = DateBS.from_AD(datetime.datetime.now())
-        else:
-            dateBS = DateBS.from_AD(datetime.datetime.strptime(date, "%Y-%m-%d"))
-        return str(dateBS)
+    def dateToBS(self,date):
+        try:
+            if (date == None):
+                dateBS = DateBS.from_AD(datetime.datetime.now())
+                return str(dateBS)
+            else:
+                dateBS = DateBS.from_AD(datetime.datetime.strptime(date, "%Y-%m-%d"))
+                return str(dateBS)
+        except Exception as e:
+            return str(e)
 
-    def date_to_ad(self,date=None):
-        if date is None:
-            return datetime.datetime.now()
-        else:
-            dateBS = DateBS.from_string(date)
-        return dateBS.toAD()
+    def dateToAD(self,date):
+        try:
+            if (date == None):
+                return str(datetime.datetime.now().strftime("%Y-%m-%d"))
+            else:
+                dateBS = DateBS.from_string(date)
+                return str(dateBS.to_AD().strftime("%Y-%m-%d"))
+        except Exception as e:
+            return str(e) 
+
+    def echo(self,text):
+        print("text")
+        return text
+
+    def greet(self):
+        print("greet")
+        return "hi"
 
 
 def createInstance( ctx ):
