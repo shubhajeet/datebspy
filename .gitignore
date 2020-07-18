@@ -1,0 +1,6 @@
+build
+dist
+datebs.egg-info
+libre_custom_function/*.xml
+libre_custom_function/*.xcu
+libre_custom_function/build

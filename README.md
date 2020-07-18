@@ -17,9 +17,9 @@ convert the date 2020-07-01 into BS
 python -m datebs BS --date 2020-07-01
 ```
 
-using from python
+### using from python
 ```python
-from .datebs import DateBS
+from datebs import DateBS
 import argparse
 import datetime
 
@@ -41,3 +41,8 @@ if __name__ == "__main__":
         else:
             print(datetime.datetime.now())
 ```
+
+### From LibreOffice calc
+Use above formula to convert the date from one string format to another
+- DateToBS(datestring)
+- DateToAD(datestring)
