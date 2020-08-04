@@ -29,6 +29,18 @@ class npDateImpl(unohelper.Base, XnpDate):
             dateBS = DateBS.from_string(date)
         return dateBS.toAD()
 
+    def datebs_to_month(self, date):
+        return DateBS.from_string(date).month;
+
+    def datebs_to_month_nepali(self, date):
+        return DateBS.from_string(date).month_in_string_nepali();
+
+    def datebs_to_month_string(self, date):
+        return DateBS.from_string(date).month_in_string();
+
+    def datebs_financial_year(self, date):
+        return DateBS.from_string(date).get_finacial_year();
+
 
 def createInstance( ctx ):
     return npDateImpl(ctx)

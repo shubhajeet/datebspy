@@ -185,4 +185,40 @@ class DateBS:
     def days_in_month(year:int, month:int):
         return DateBS.months_in_year(year)[month-1]
 
+    def month_in_string(self): 
+        monthBS = [ "Baishakh",
+                    "Jestha",
+                    "Ashadh",
+                    "Shrawan",
+                    "Bhadra",
+                    "Ashwin",
+                    "Kartik",
+                    "Mangsir",
+                    "Poush",
+                    "Magh",
+                    "Falgun",
+                    "Chaitra"
+        ]
+        return monthBS[self.month]
 
+    def month_in_string_nepali(self): 
+        monthBS = [ "वैशाख",
+                    "ज्येष्ठ",
+                    "असार",
+                    "साउन",
+                    "भदौ",
+                    "असोज",
+                    "कात्तिक",
+                    "मंसिर",
+                    "पुष",
+                    "माघ",
+                    "फागुन",
+                    "चैत"
+        ]
+        return monthBS[self.month]
+
+    def get_financial_year(self):
+        if self.month > 3:
+            return str(self.year) + "/" + str(self.year % 100+1)
+        else:
+            return str(self.year-1) + "/" + str(self.year % 100)
