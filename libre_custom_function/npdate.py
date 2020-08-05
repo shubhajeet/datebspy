@@ -38,17 +38,41 @@ class npDateImpl(unohelper.Base, XnpDate):
         print("greet")
         return "hi"
 
-    def datebs_to_month(self, date):
-        return DateBS.from_string(date).month;
+    def BSMonth(self, date):
+        try:
+            if (date == None):
+                return DateBS.from_AD(datetime.datetime.now()).month
+            else:
+                return DateBS.from_string(date).month
+        except Exception as e:
+            return str(e)
 
-    def datebs_to_month_nepali(self, date):
-        return DateBS.from_string(date).month_in_string_nepali();
+    def BSMonthNepali(self, date):
+        try:
+            if (date == None):
+                return DateBS.from_AD(datetime.datetime.now()).month_in_string_nepali()
+            else:
+                return DateBS.from_string(date).month_in_string_nepali()
+        except Exception as e:
+            return str(e)
 
-    def datebs_to_month_string(self, date):
-        return DateBS.from_string(date).month_in_string();
+    def BSMonthString(self, date):
+        try:
+            if (date == None):
+                return DateBS.from_AD(datetime.datetime.now()).month_in_string()
+            else:
+                return DateBS.from_string(date).month_in_string()
+        except Exception as e:
+            return str(e)
 
-    def datebs_financial_year(self, date):
-        return DateBS.from_string(date).get_finacial_year();
+    def BSFinancialYear(self, date):
+        try:
+            if (date == None):
+                return DateBS.from_AD(datetime.datetime.now()).get_financial_year()
+            else:
+                return DateBS.from_string(date).get_financial_year();
+        except Exception as e:
+            return str(e)
 
 
 def createInstance( ctx ):

@@ -3,7 +3,7 @@
 
 # A unique ID for the add-in.
 addin_id = "np.com.maharjansujit.npdate"
-addin_version = "0.1"
+addin_version = "0.2"
 addin_displayname = "Convert date from AD to BS and vice versa"
 addin_publisher_link = "https://maharjansujit.com.np/projects/datebpy"
 addin_publisher_name = "Sujit Maharjan"
@@ -100,16 +100,16 @@ define_function(calcaddin_xml, \
 #	'greet', 'greets', \
 #	[])
 define_function(calcaddin_xml, \
-                'getBSMonth','extracts month from the BS date string',
+                'BSMonth','extracts month from the BS date string',
                 [('date','Date in BS')])
 define_function(calcaddin_xml, \
-                'getBSMonthString','extracts month from the BS date string',
+                'BSMonthString','extracts month from the BS date string',
                 [('date','Date in BS')])
 define_function(calcaddin_xml, \
-                'getBSMonthNepali','extracts month from the BS date string',
+                'BSMonthNepali','extracts month from the BS date string',
                 [('date','Date in BS')])
 define_function(calcaddin_xml, \
-                'getBSFinancialYear','extracts financial year from the BS date string',
+                'BSFinancialYear','extracts financial year from the BS date string',
                 [('date','Date in BS')])
 
 calcaddin_xml.write('</node>\n')
