@@ -14,8 +14,13 @@ class npDateImpl(unohelper.Base, XnpDate):
             if (date == None):
                 dateBS = DateBS.from_AD(datetime.datetime.now())
                 return str(dateBS)
-            else:
+            elif ( type(date) == type("string") ):
                 dateBS = DateBS.from_AD(datetime.datetime.strptime(date, "%Y-%m-%d"))
+                return str(dateBS)
+            else:
+                converted_date = datetime.datetime(1899,12,30) + datetime.timedelta(days=int(date))
+                print(str(converted_date))
+                dateBS = DateBS.from_AD(converted_date)
                 return str(dateBS)
         except Exception as e:
             return str(e)
@@ -25,7 +30,7 @@ class npDateImpl(unohelper.Base, XnpDate):
             if (date == None):
                 return str(datetime.datetime.now().strftime("%Y-%m-%d"))
             else:
-                dateBS = DateBS.from_string(date)
+                dateBS = DateBS.from_string(str(date))
                 return str(dateBS.to_AD().strftime("%Y-%m-%d"))
         except Exception as e:
             return str(e) 
@@ -43,7 +48,7 @@ class npDateImpl(unohelper.Base, XnpDate):
             if (date == None):
                 return DateBS.from_AD(datetime.datetime.now()).month
             else:
-                return DateBS.from_string(date).month
+                return DateBS.from_string(str(date)).month
         except Exception as e:
             return str(e)
 
