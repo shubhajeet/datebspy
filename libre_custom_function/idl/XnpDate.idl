@@ -4,6 +4,10 @@ module np { module com { module maharjansujit { module npDate {
         interface XnpDate {
           string dateToAD( [in] any date);
           string dateToBS( [in] any date);
+          long BSMonth( [in] any date);
+          string BSMonthString( [in] any date);
+          string BSMonthNepali( [in] any date);
+          string BSFinancialYear( [in] any date);
           string echo([in] string text);
           string greet();
         };
