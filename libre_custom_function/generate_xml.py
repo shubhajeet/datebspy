@@ -99,6 +99,18 @@ define_function(calcaddin_xml, \
 #define_function(calcaddin_xml, \
 #	'greet', 'greets', \
 #	[])
+define_function(calcaddin_xml, \
+                'getBSMonth','extracts month from the BS date string',
+                [('date','Date in BS')])
+define_function(calcaddin_xml, \
+                'getBSMonthString','extracts month from the BS date string',
+                [('date','Date in BS')])
+define_function(calcaddin_xml, \
+                'getBSMonthNepali','extracts month from the BS date string',
+                [('date','Date in BS')])
+define_function(calcaddin_xml, \
+                'getBSFinancialYear','extracts financial year from the BS date string',
+                [('date','Date in BS')])
 
 calcaddin_xml.write('</node>\n')
 calcaddin_xml.write('</node>\n')
