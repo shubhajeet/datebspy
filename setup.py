@@ -6,7 +6,7 @@ with open("README.md","r") as fh:
 
 setuptools.setup(
     name="datebs", # Replace with your own username
-    version="0.0.4",
+    version="0.0.5",
     author="Sujit Maharjan",
     author_email="shubhajeet.per@gmail.com",
     description="convert date from BS to AD and vice versa",

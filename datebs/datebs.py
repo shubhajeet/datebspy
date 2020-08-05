@@ -158,7 +158,7 @@ class DateBS:
             #import ipdb;ipdb.set_trace()
             days_in_month: int = DateBS.days_in_month(self.year, self.month)
             days_left_in_month: int = days_in_month - self.day + 1
-            if (diff > days_left_in_month):
+            if (diff >= days_left_in_month):
                 if (self.month == 12):
                     self.year += 1
                     self.month = 1
@@ -199,7 +199,7 @@ class DateBS:
                     "Falgun",
                     "Chaitra"
         ]
-        return monthBS[self.month]
+        return monthBS[self.month-1]
 
     def month_in_string_nepali(self): 
         monthBS = [ "वैशाख",
@@ -215,7 +215,7 @@ class DateBS:
                     "फागुन",
                     "चैत"
         ]
-        return monthBS[self.month]
+        return monthBS[self.month-1]
 
     def get_financial_year(self):
         if self.month > 3:
