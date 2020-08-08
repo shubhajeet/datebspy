@@ -8,6 +8,7 @@ module np { module com { module maharjansujit { module npDate {
           string BSMonthString( [in] any date);
           string BSMonthNepali( [in] any date);
           string BSFinancialYear( [in] any date);
+          string BSadd( [in] any date, [in] float day, [in] float month, [in] float year);
           string echo([in] string text);
           string greet();
         };

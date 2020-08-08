@@ -79,6 +79,13 @@ class npDateImpl(unohelper.Base, XnpDate):
         except Exception as e:
             return str(e)
 
+    def BSadd(self, date, day=0, month=0, year=0):
+        try:
+            converted_date = DateBS.from_string(date).add(day,month,year)
+            return str(converted_date)
+        except Exception as e:
+            return str(e)
+
 
 def createInstance( ctx ):
     return npDateImpl(ctx)

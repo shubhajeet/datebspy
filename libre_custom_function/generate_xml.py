@@ -111,6 +111,9 @@ define_function(calcaddin_xml, \
 define_function(calcaddin_xml, \
                 'BSFinancialYear','extracts financial year from the BS date string',
                 [('date','Date in BS')])
+define_function(calcaddin_xml, \
+                "BSadd","add specific day, month, year to BS date",
+                [('date',"date in BS"),("day","no of days"),("month","no of month"),("year","no of year")])
 
 calcaddin_xml.write('</node>\n')
 calcaddin_xml.write('</node>\n')
