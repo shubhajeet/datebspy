@@ -157,6 +157,7 @@ class DateBS:
     def day_of_year(self) -> int:
         """
         gets the day of the year
+
         :returns: day of the year in integer
         :rtype: int
         """
@@ -167,6 +168,7 @@ class DateBS:
     def days_in_year(year: int) -> int:
         """
         gets the no of day in a year
+
         :returns: no of day in a year
         :rtype: int
         """
@@ -175,7 +177,9 @@ class DateBS:
     def day_since(self, date : any = None )  -> int:
         """
         returns no of day since the date
+
         :param date: date in BS
+
         :returns: int
         :rtype: int
         """
@@ -191,6 +195,7 @@ class DateBS:
     def add(self, day:int, month:int = 0, year:int = 0 ):
         """
         add date time to dateBS
+
         :param day: day in int
         :rtype day: int
         :param month: month in int
@@ -225,6 +230,7 @@ class DateBS:
     def to_AD(self):
         """
         change the date to AD
+
         :returns: datetime in AD
         :rtype: datetime
         """
@@ -236,8 +242,10 @@ class DateBS:
     def months_in_year(year: int):
         """
         get no of months in year
+
         :param year: year
-        :return: no of mohths in year
+
+        :return: no of months in year
         :rtype: int
         """
         year_index = year - 2000
@@ -247,10 +255,12 @@ class DateBS:
     def days_in_month(year:int, month:int):
         """
         get days of the months
+
         :param year: year
         :type year: int
         :param month: months
         :type month: int
+
         :returns: days in the month
         :rtype: int
         """
@@ -259,6 +269,7 @@ class DateBS:
     def month_in_string(self):
         """
         converts month in string
+
         :returns: month in string
         :rtype: str
         """
@@ -280,6 +291,7 @@ class DateBS:
     def month_in_string_nepali(self):
         """
         convertes month in string nepali
+
         :returns: month in nepali stirng
         :rtype: str
         """
@@ -301,6 +313,7 @@ class DateBS:
     def get_financial_year(self):
         """
         gets the financial year
+
         :returns: financial year in string
         :rtype: str 
         """

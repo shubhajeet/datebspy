@@ -1,16 +1,62 @@
-.. datebspy documentation master file, created by
-   sphinx-quickstart on Mon Aug 10 12:48:09 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+DateBS
+======
 
-Welcome to datebspy's documentation!
-====================================
+A python library that assists you in converting date from BS to AD and vice versa.
+
+Installation
+============
+.. code-block:: bash
+
+   pip install datebs
+
+
+usage
+=====
+
+Commandline
+-----------
+
+convert the date 2020-07-01 into BS
+
+.. code-block:: bash
+
+   python -m datebs BS --date 2020-07-01
+
+
+using from python
+-----------------
+
+.. code-block:: python
+                
+   from datebs import DateBS
+   import argparse
+   import datetime
+
+   if __name__ == "__main__":
+       parser = argparse.ArgumentParser(prog="python -m datebs",description='Convert date from BS to AD and vice-versa')
+       parser.add_argument('calendar',type=str, help="calendar system in which date is to be displayed [AD|BS]")
+       parser.add_argument('--date',type=str, help="date opporsite to the calendar system")
+       args = parser.parse_args()
+       if (args.calendar == "BS"):
+           if args.date:
+               dateBS = DateBS.from_AD(datetime.datetime.strptime(args.date, "%Y-%m-%d"))
+           else:
+               dateBS = DateBS.from_AD(datetime.datetime.now())
+           print(dateBS)
+       else:
+           if args.date:
+               dateBS = DateBS.from_string(args.date)
+               print(dateBS.to_AD())
+           else:
+               print(datetime.datetime.now())
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents
+   
 
-
+   modules          
+   datebs         
 
 Indices and tables
 ==================
