@@ -3,7 +3,7 @@
 
 # A unique ID for the add-in.
 addin_id = "np.com.maharjansujit.npdate"
-addin_version = "0.2"
+addin_version = "0.3"
 addin_displayname = "Convert date from AD to BS and vice versa"
 addin_publisher_link = "https://maharjansujit.com.np/projects/datebpy"
 addin_publisher_name = "Sujit Maharjan"
